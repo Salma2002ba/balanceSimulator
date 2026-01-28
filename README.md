@@ -2,31 +2,26 @@
 
 Simulateur logiciel d’une balance de précision **METTLER TOLEDO XP6U**, destiné uniquement au **développement** et aux **tests** d’applications (par exemple une application WPF en C#), sans connexion à un matériel réel.
 
-Ce projet permet de tester :
+Ce projet permet de tester :
 - **l’acquisition de poids en continu**
 - **la gestion des états stable / instable**
 - **la fonction de tare**
 - **l’intégration avec une application cliente via HTTP**
 
-⚠️ **Ce simulateur n’est pas un outil métrologique et ne remplace pas une balance réelle.**
+**Ce simulateur n’est pas un outil métrologique et ne remplace pas une balance réelle.**
 
 ---
 
-### 🎯 Objectif du projet
+### Objectif
 
-Dans un contexte industriel sensible (ex. laboratoire), le matériel réel n’est pas toujours disponible ou ne doit pas être manipulé pendant le développement.
-
-Ce simulateur permet de :
-- **développer et tester la logique d’acquisition**
-- **éviter les allers-retours en laboratoire**
-- **sécuriser le développement avant l’intégration matérielle finale**
+Fournir un simulateur de balance pour développer et tester la logique d’acquisition sans utiliser le matériel réel (ex. en laboratoire), afin de limiter les contraintes matérielles et sécuriser le développement avant l’intégration finale.
 
 ---
 
-### 🧰 Fonctionnalités
+### Fonctionnalités
 
 - **Simulation d’une balance METTLER TOLEDO XP6U**
-- **Génération de poids avec** :
+- **Génération de poids avec** :
   - bruit
   - dérive
   - état stable / instable
@@ -36,7 +31,7 @@ Ce simulateur permet de :
 
 ---
 
-### 📡 API HTTP
+### API HTTP
 
 - **GET `/weight`**  
   Retourne le poids simulé courant.
@@ -67,23 +62,23 @@ Ce simulateur permet de :
 
 ---
 
-### 🖥️ Interface Web
+### Interface web
 
-L’interface web permet de :
-- **définir le poids de base**
-- **activer / désactiver le bruit**
-- **basculer stable / instable**
-- **appliquer la tare**
-- **visualiser le poids en temps réel**
+L’interface web permet de :
+- définir le poids de base
+- activer / désactiver le bruit
+- basculer stable / instable
+- appliquer la tare
+- visualiser le poids en temps réel
 
 Elle est destinée au test uniquement (**pas d’UI industrielle**).
 
 ---
 
-### 🚀 Lancer le simulateur en local
+### Lancer le simulateur en local
 
 - **Prérequis**
-  - **Node.js** (version portable possible, sans droits administrateur)
+  - Node.js (version portable possible, sans droits administrateur)
 
 - **Installation**
 
@@ -100,60 +95,32 @@ node server.js
 ```
 
 - **Accès**
-  - **Interface web** : `http://localhost:5050`
-  - **API** : `http://localhost:5050/weight`
+  - Interface web : `http://localhost:5050`
+  - API : `http://localhost:5050/weight`
 
 ---
 
-### 🔌 Intégration avec une application WPF (C#)
+### Intégration avec une application WPF (C#)
 
-Ce simulateur est conçu pour être consommé par une application cliente (ex. WPF) via HTTP.
+Ce simulateur est conçu pour être consommé par une application cliente (par exemple WPF) via HTTP.
 
-Exemple d’usage :
+Exemple d’usage :
 - appel périodique à **GET `/weight`**
 - traitement du flux comme une acquisition réelle
-- remplacement ultérieur par une **communication série** (COM / MT-SICS)
+- remplacement ultérieur par une communication série (COM / MT-SICS)
 
-👉 **La logique métier ne dépend pas du simulateur.**
-
----
-
-### 🏗️ Architecture recommandée côté client
-
-```text
-UI / ViewModel
-      ↓
-IBalanceSource
- ├── HttpBalanceSource   (simulation)
- └── ComBalanceSource    (balance réelle – plus tard)
-```
+La logique métier ne dépend pas du simulateur.
 
 ---
 
-### 📌 Limites connues
+### Limites
 
-- **Pas de port série / COM**
-- **Pas d’implémentation réelle du protocole MT-SICS**
-- **Simulation volontairement simplifiée**
-
-Ces limites sont assumées et cohérentes avec l’objectif de test.
+- pas de port série / COM
+- pas d’implémentation réelle du protocole MT-SICS
+- simulation volontairement simplifiée
 
 ---
 
-### 📄 Utilisation académique / industrielle
+### Licence
 
-Ce simulateur peut être utilisé pour :
-- **projets académiques**
-- **PFE / stage**
-- **prototypage logiciel**
-- **validation d’architecture**
-
-**Phrase type pour un rapport** :
-
-> Une balance METTLER TOLEDO XP6U a été simulée via une application web afin de valider l’acquisition des mesures sans interaction avec les équipements de laboratoire.
-
----
-
-### 📜 Licence
-
-Projet fourni à des fins **pédagogiques** et de **test**.
+Projet fourni à des fins pédagogiques et de test.
