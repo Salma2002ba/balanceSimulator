@@ -1,6 +1,6 @@
 ## Balance Simulator – METTLER TOLEDO XP6U
 
-Simulateur logiciel d’une balance de précision **METTLER TOLEDO XP6U**, destiné uniquement au **développement** et aux **tests** d’applications (par exemple une application WPF en C#), sans connexion à un matériel réel.
+Simulateur logiciel d’une balance de précision **METTLER TOLEDO**, destiné uniquement au **développement** et aux **tests** d’applications.
 
 Ce projet permet de tester :
 - **l’acquisition de poids en continu**
@@ -8,7 +8,6 @@ Ce projet permet de tester :
 - **la fonction de tare**
 - **l’intégration avec une application cliente via HTTP**
 
-**Ce simulateur n’est pas un outil métrologique et ne remplace pas une balance réelle.**
 
 ---
 
