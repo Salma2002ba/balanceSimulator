@@ -1,0 +1,5 @@
+{
+  "name": "Copy of METTLER TOLEDO XP6U Simulator",
+  "description": "A high-precision laboratory balance simulator for software development and integration testing. Features real-time weight simulation, stability modes, tare functionality, and a simulated HTTP API interface.",
+  "requestFramePermissions": []
+}
